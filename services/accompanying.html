@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>馨安陪诊 - 贴心陪诊</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">馨安陪诊</div>
+            <div class="nav-center">
+                <ul>
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="../about.html">关于我们</a></li>
+                    <li><a href="../contact.html">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <a href="../login.html" class="btn-small" id="loginBtn">登录</a>
+                <a href="../register.html" class="btn-small">注册</a>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="page-header">
+            <h1>贴心陪诊</h1>
+            <p>全程陪同就医，让您就医过程更轻松</p>
+        </section>
+        
+        <section class="content">
+            <div class="container">
+                <div class="service-intro">
+                    <h2>贴心陪诊服务简介</h2>
+                    <p>馨安陪诊的贴心陪诊服务全程陪伴您的就医过程。我们的陪诊人员会从您到达医院开始，直至取药离开，提供全方位的服务和支持。</p>
+                    
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-text">医院内导航引路，熟悉各大医院布局</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-text">代为排队挂号、缴费</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-text">陪同就诊，帮助记录医嘱</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-text">协助检查、取药</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-form-container">
+                    <h2>预约贴心陪诊</h2>
+                    
+                    <!-- 登录提示 -->
+                    <div class="login-notice" id="loginNotice">
+                        <p>您尚未登录，建议先<a href="../login.html">登录</a>后再提交预约信息</p>
+                    </div>
+                    
+                    <form id="accompanyingForm" class="booking-form">
+                        <div class="form-section">
+                            <h3>基本信息</h3>
+                            
+                            <div class="form-group">
+                                <label for="serviceType">服务类型</label>
+                                <select id="serviceType" name="serviceType" required>
+                                    <option value="">请选择服务类型</option>
+                                    <option value="halfDay">半天陪诊服务</option>
+                                    <option value="fullDay">全天陪诊服务</option>
+                                    <option value="hospitalStay">住院陪护服务</option>
+                                    <option value="specialNeeds">特殊需求陪诊</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="hospital">医院名称</label>
+                                <input type="text" id="hospital" name="hospital" placeholder="请输入医院全称，如：北京协和医院" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="department">就诊科室</label>
+                                <input type="text" id="department" name="department" placeholder="请输入科室名称，如：心内科" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="appointmentDate">预约日期</label>
+                                <input type="date" id="appointmentDate" name="appointmentDate" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="appointmentTime">预约时间</label>
+                                <select id="appointmentTime" name="appointmentTime" required>
+                                    <option value="">请选择时间段</option>
+                                    <option value="morning">上午 (8:00-12:00)</option>
+                                    <option value="afternoon">下午 (13:00-17:00)</option>
+                                    <option value="evening">晚间 (17:00-21:00)</option>
+                                    <option value="allDay">全天</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="patientName">患者姓名</label>
+                                <input type="text" id="patientName" name="patientName" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="patientPhone">联系电话</label>
+                                <input type="tel" id="patientPhone" name="patientPhone" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="paymentMethod">支付方式</label>
+                                <select id="paymentMethod" name="paymentMethod" required>
+                                    <option value="">请选择支付方式</option>
+                                    <option value="wechat">微信支付</option>
+                                    <option value="alipay">支付宝</option>
+                                    <option value="bankCard">银行卡支付</option>
+                                    <option value="cash">现金支付</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="specialRequirements">特殊需求</label>
+                                <textarea id="specialRequirements" name="specialRequirements" rows="4" placeholder="请描述您的特殊需求，如需要轮椅、特殊交通安排等"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn" id="submitBtn">提交预约</button>
+                            <a href="../appointment.html" class="btn btn-secondary">返回服务选择</a>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="service-price">
+                    <h3>服务价格</h3>
+                    <div class="price-table">
+                        <div class="price-item">
+                            <div class="price-name">半天陪诊服务（4小时内）</div>
+                            <div class="price-value">300元/次</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-name">全天陪诊服务（8小时内）</div>
+                            <div class="price-value">500元/次</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-name">住院陪护服务</div>
+                            <div class="price-value">600元/天</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-name">特殊需求陪诊</div>
+                            <div class="price-value">根据实际需求定价</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 馨安陪诊服务 - 版权所有</p>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 判断用户是否登录
+            let isLoggedIn = false;
+            
+            // 检查登录状态
+            const checkLoginStatus = () => {
+                isLoggedIn = localStorage.getItem('xingAnUserLoggedIn') === 'true';
+                
+                const loginBtn = document.getElementById('loginBtn');
+                const loginNotice = document.getElementById('loginNotice');
+                
+                if (isLoggedIn) {
+                    loginBtn.textContent = '个人中心';
+                    loginBtn.href = '../user-center.html';
+                    if (loginNotice) loginNotice.style.display = 'none';
+                } else {
+                    loginBtn.textContent = '登录';
+                    loginBtn.href = '../login.html';
+                    if (loginNotice) loginNotice.style.display = 'block';
+                }
+            };
+            
+            // 页面加载时检查登录状态
+            checkLoginStatus();
+            
+            // 设置日期最小值为今天
+            const appointmentDateInput = document.getElementById('appointmentDate');
+            if (appointmentDateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                appointmentDateInput.setAttribute('min', today);
+            }
+            
+            // 服务类型变更时更新时间选项
+            const serviceTypeSelect = document.getElementById('serviceType');
+            const timeSelect = document.getElementById('appointmentTime');
+            
+            if (serviceTypeSelect && timeSelect) {
+                serviceTypeSelect.addEventListener('change', function() {
+                    if (this.value === 'hospitalStay') {
+                        // 住院陪护默认为全天
+                        timeSelect.value = 'allDay';
+                        timeSelect.disabled = true;
+                    } else {
+                        timeSelect.disabled = false;
+                    }
+                });
+            }
+            
+            // 表单提交处理
+            const accompanyingForm = document.getElementById('accompanyingForm');
+            if (accompanyingForm) {
+                accompanyingForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // 如果未登录，跳转到登录页面
+                    if (!isLoggedIn) {
+                        const formData = new FormData(accompanyingForm);
+                        const formDataObj = {};
+                        formData.forEach((value, key) => {
+                            formDataObj[key] = value;
+                        });
+                        
+                        localStorage.setItem('accompanyingFormData', JSON.stringify(formDataObj));
+                        localStorage.setItem('accompanyingReturnUrl', window.location.href);
+                        
+                        alert('请先登录后再提交预约信息');
+                        window.location.href = '../login.html';
+                        return;
+                    }
+                    
+                    // 已登录，处理表单提交
+                    alert('贴心陪诊预约已提交！我们会尽快与您联系确认详情。');
+                    
+                    // 清空表单
+                    accompanyingForm.reset();
+                });
+            }
+            
+            // 恢复之前保存的表单数据（如果有）
+            const restoreFormData = () => {
+                const savedFormData = localStorage.getItem('accompanyingFormData');
+                if (savedFormData && isLoggedIn) {
+                    try {
+                        const formDataObj = JSON.parse(savedFormData);
+                        
+                        // 填充表单字段
+                        Object.keys(formDataObj).forEach(key => {
+                            const input = document.getElementById(key);
+                            if (input) {
+                                input.value = formDataObj[key];
+                            }
+                        });
+                        
+                        // 清除已使用的保存数据
+                        localStorage.removeItem('accompanyingFormData');
+                    } catch (e) {
+                        console.error('恢复表单数据时出错:', e);
+                    }
+                }
+            };
+            
+            // 尝试恢复表单数据
+            restoreFormData();
+        });
+    </script>
+</body>
+</html>

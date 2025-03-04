@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>馨安陪诊 - 预约检查</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">馨安陪诊</div>
+            <div class="nav-center">
+                <ul>
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="../about.html">关于我们</a></li>
+                    <li><a href="../contact.html">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <a href="../login.html" class="btn-small" id="loginBtn">登录</a>
+                <a href="../register.html" class="btn-small">注册</a>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="page-header">
+            <h1>预约检查</h1>
+            <p>专业团队代您预约各类医疗检查项目，无需排队等候</p>
+        </section>
+        
+        <section class="content">
+            <div class="container">
+                <div class="booking-form-container">
+                    <h2>填写检查预约信息</h2>
+                    
+                    <!-- 登录提示 -->
+                    <div class="login-notice" id="loginNotice">
+                        <p>您尚未登录，建议先<a href="../login.html">登录</a>后再提交预约信息</p>
+                    </div>
+                    
+                    <form id="examBookingForm" class="booking-form">
+                        <!-- 基本信息 -->
+                        <div class="form-section">
+                            <h3>检查信息</h3>
+                            
+                            <div class="form-group">
+                                <label for="patientName">患者姓名</label>
+                                <input type="text" id="patientName" name="patientName" required>
+                            </div>
+                            
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="patientGender">性别</label>
+                                    <select id="patientGender" name="patientGender" required>
+                                        <option value="">请选择</option>
+                                        <option value="male">男</option>
+                                        <option value="female">女</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="patientAge">年龄</label>
+                                    <input type="number" id="patientAge" name="patientAge" min="0" max="150" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="idCard">身份证号码</label>
+                                <input type="text" id="idCard" name="idCard" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">手机号码</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="examType">检查类型</label>
+                                <select id="examType" name="examType" required>
+                                    <option value="">请选择检查类型</option>
+                                    <option value="ct">CT检查</option>
+                                    <option value="mri">核磁共振(MRI)</option>
+                                    <option value="ultrasound">超声检查</option>
+                                    <option value="xray">X光检查</option>
+                                    <option value="endoscopy">内窥镜检查</option>
+                                    <option value="lab">化验检查</option>
+                                    <option value="other">其他检查</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="examDetail">检查详情</label>
+                                <textarea id="examDetail" name="examDetail" rows="3" placeholder="请详细描述需要预约的检查项目" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>是否需要陪检服务</label>
+                                <div class="radio-group">
+                                    <div class="radio-option">
+                                        <input type="radio" id="accompany-yes" name="needAccompany" value="yes">
+                                        <label for="accompany-yes">需要</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="accompany-no" name="needAccompany" value="no" checked>
+                                        <label for="accompany-no">不需要</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="remarks">备注说明</label>
+                                <textarea id="remarks" name="remarks" rows="4" placeholder="请填写相关病史或检查要求，以及其他需求说明"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn" id="submitBtn">提交预约</button>
+                            <a href="booking.html" class="btn btn-secondary">返回</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 馨安陪诊服务 - 版权所有</p>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+    <script src="../js/exam.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 判断用户是否登录
+            let isLoggedIn = false;
+            
+            // 检查登录状态
+            const checkLoginStatus = () => {
+                isLoggedIn = localStorage.getItem('xingAnUserLoggedIn') === 'true';
+                
+                const loginBtn = document.getElementById('loginBtn');
+                const loginNotice = document.getElementById('loginNotice');
+                
+                if (isLoggedIn) {
+                    loginBtn.textContent = '个人中心';
+                    loginBtn.href = '../user-center.html';
+                    if (loginNotice) loginNotice.style.display = 'none';
+                } else {
+                    loginBtn.textContent = '登录';
+                    loginBtn.href = '../login.html';
+                    if (loginNotice) loginNotice.style.display = 'block';
+                }
+            };
+            
+            // 页面加载时检查登录状态
+            checkLoginStatus();
+            
+            // 表单提交处理
+            const examBookingForm = document.getElementById('examBookingForm');
+            if (examBookingForm) {
+                examBookingForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // 如果未登录，跳转到登录页面
+                    if (!isLoggedIn) {
+                        const formData = new FormData(examBookingForm);
+                        const formDataObj = {};
+                        formData.forEach((value, key) => {
+                            formDataObj[key] = value;
+                        });
+                        
+                        localStorage.setItem('examFormData', JSON.stringify(formDataObj));
+                        localStorage.setItem('examReturnUrl', window.location.href);
+                        
+                        alert('请先登录后再提交预约信息');
+                        window.location.href = '../login.html';
+                        return;
+                    }
+                    
+                    // 已登录，处理表单提交
+                    alert('检查预约请求已提交！我们的工作人员将在24小时内与您联系确认详情。');
+                    window.location.href = 'booking.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

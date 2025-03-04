@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>馨安陪诊 - 家人病例档案查询</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">馨安陪诊</div>
+            <div class="nav-center">
+                <ul>
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="../about.html">关于我们</a></li>
+                    <li><a href="../contact.html">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <a href="../login.html" class="btn-small" id="loginBtn">登录</a>
+                <a href="../register.html" class="btn-small">注册</a>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="page-header">
+            <h1>家人病例档案查询</h1>
+            <p>便捷查询您和家人的医疗档案</p>
+        </section>
+        
+        <section class="content">
+            <div class="container" id="recordsContainer">
+                <!-- 未登录提示 -->
+                <div class="login-required" id="loginRequiredMessage">
+                    <div class="login-required-icon">
+                        <img src="../images/lock-icon.svg" alt="需要登录">
+                    </div>
+                    <h2>请先登录</h2>
+                    <p>为保护您和家人的隐私安全，查看病例档案需要先登录账号</p>
+                    <a href="../login.html" class="btn">立即登录</a>
+                    <p class="register-prompt">还没有账号？<a href="../register.html">立即注册</a></p>
+                </div>
+                
+                <!-- 登录后显示内容 -->
+                <div class="records-search-content" id="recordsContent" style="display: none;">
+                    <h2>家人病例档案查询</h2>
+                    <p class="search-description">请输入患者手机号码进行查询，系统将显示与该手机号关联的所有病例档案。</p>
+                    
+                    <div class="search-form">
+                        <div class="form-section">
+                            <div class="form-group">
+                                <label for="phoneNumber">手机号码</label>
+                                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="请输入患者手机号码" required>
+                            </div>
+                            
+                            <div class="form-group optional-field">
+                                <label for="patientName">患者姓名（选填）</label>
+                                <input type="text" id="patientName" name="patientName" placeholder="输入姓名可精确查询">
+                            </div>
+                            
+                            <div class="form-group search-btn-container">
+                                <button type="button" class="btn" id="searchBtn">查询档案</button>
+                                <button type="button" class="btn btn-secondary" id="resetBtn">重置</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="search-tips">
+                        <h3>查询须知</h3>
+                        <ul>
+                            <li>手机号码必须是患者本人或已授权的亲属的号码</li>
+                            <li>如需查询多位家庭成员的病例，请依次输入不同手机号查询</li>
+                            <li>病例信息受到严格保护，仅限本人或法定监护人查询</li>
+                            <li>如有疑问，请联系客服热线：400-123-4567</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="records-results" id="recordsResults" style="display: none;">
+                        <h3>查询结果</h3>
+                        <div class="records-list" id="recordsList">
+                            <!-- 查询结果将在此显示 -->
+                        </div>
+                    </div>
+                    
+                    <div class="records-empty" id="noRecords">
+                        <img src="../images/empty-records-icon.svg" alt="暂无记录">
+                        <p>请输入手机号码进行查询</p>
+                        <p class="records-empty-tip">如果您尚未上传病例，可通过"病例上传"功能上传您的病历资料</p>
+                        <a href="records-upload.html" class="btn">上传病例资料</a>
+                    </div>
+                </div>
+                
+                <div class="back-button-container">
+                    <a href="records.html" class="btn btn-secondary">返回病例管理</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 馨安陪诊服务 - 版权所有</p>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const isLoggedIn = localStorage.getItem('xingAnUserLoggedIn') === 'true';
+            const loginBtn = document.getElementById('loginBtn');
+            const loginRequiredMessage = document.getElementById('loginRequiredMessage');
+            const recordsContent = document.getElementById('recordsContent');
+            const recordsResults = document.getElementById('recordsResults');
+            const noRecords = document.getElementById('noRecords');
+            const recordsList = document.getElementById('recordsList');
+            
+            // 检查登录状态
+            if (isLoggedIn) {
+                loginBtn.textContent = '个人中心';
+                loginBtn.href = '../user-center.html';
+                loginRequiredMessage.style.display = 'none';
+                recordsContent.style.display = 'block';
+                noRecords.style.display = 'block';
+                recordsResults.style.display = 'none';
+            } else {
+                loginBtn.textContent = '登录';
+                loginBtn.href = '../login.html';
+                loginRequiredMessage.style.display = 'flex';
+                recordsContent.style.display = 'none';
+            }
+            
+            // 查询和重置按钮功能
+            const searchBtn = document.getElementById('searchBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const phoneInput = document.getElementById('phoneNumber');
+            const nameInput = document.getElementById('patientName');
+            
+            if (searchBtn) {
+                searchBtn.addEventListener('click', function() {
+                    // 检查登录状态
+                    if (!isLoggedIn) {
+                        // 保存查询参数
+                        if (phoneInput.value) {
+                            localStorage.setItem('searchPhoneNumber', phoneInput.value);
+                        }
+                        if (nameInput.value) {
+                            localStorage.setItem('searchPatientName', nameInput.value);
+                        }
+                        localStorage.setItem('searchReturnUrl', window.location.href);
+                        
+                        // 跳转到登录页面
+                        alert('请先登录后再查询病例档案');
+                        window.location.href = '../login.html';
+                        return;
+                    }
+                    
+                    // 验证手机号
+                    const phoneNumber = phoneInput.value;
+                    if (!phoneNumber) {
+                        alert('请输入手机号码');
+                        phoneInput.focus();
+                        return;
+                    }
+                    
+                    // 模拟查询，实际应该是查询服务器
+                    searchRecords(phoneNumber, nameInput.value);
+                });
+            }
+            
+            if (resetBtn) {
+                resetBtn.addEventListener('click', function() {
+                    phoneInput.value = '';
+                    nameInput.value = '';
+                    noRecords.style.display = 'block';
+                    recordsResults.style.display = 'none';
+                });
+            }
+            
+            // 恢复查询参数（如果从登录页返回）
+            if (isLoggedIn) {
+                const savedPhone = localStorage.getItem('searchPhoneNumber');
+                const savedName = localStorage.getItem('searchPatientName');
+                
+                if (savedPhone && phoneInput) {
+                    phoneInput.value = savedPhone;
+                    if (savedName && nameInput) {
+                        nameInput.value = savedName;
+                    }
+                    
+                    // 自动执行查询
+                    if (searchBtn) {
+                        setTimeout(() => {
+                            searchBtn.click();
+                        }, 500);
+                    }
+                    
+                    // 清除保存的查询参数
+                    localStorage.removeItem('searchPhoneNumber');
+                    localStorage.removeItem('searchPatientName');
+                    localStorage.removeItem('searchReturnUrl');
+                }
+            }
+            
+            // 模拟查询函数
+            function searchRecords(phone, name) {
+                noRecords.style.display = 'none';
+                recordsResults.style.display = 'block';
+                
+                // 清空结果列表
+                if (recordsList) {
+                    recordsList.innerHTML = '';
+                }
+                
+                // 仅作演示用的模拟数据
+                const demoResults = [
+                    {
+                        title: '普通感冒门诊记录',
+                        type: 'diagnosis',
+                        date: '2023-10-15',
+                        patient: name || '张三',
+                        hospital: '北京协和医院',
+                        department: '呼吸内科',
+                        doctor: '李医生',
+                        diagnosis: '普通感冒'
+                    },
+                    {
+                        title: '血常规检查报告',
+                        type: 'test',
+                        date: '2023-10-15',
+                        patient: name || '张三',
+                        hospital: '北京协和医院',
+                        department: '检验科',
+                        doctor: '王医生',
+                        diagnosis: '正常范围'
+                    }
+                ];
+                
+                // 显示模拟结果
+                demoResults.forEach(record => {
+                    const recordItem = document.createElement('div');
+                    recordItem.className = 'record-item';
+                    
+                    recordItem.innerHTML = `
+                        <div class="record-header">
+                            <div class="record-title">
+                                <h3>${record.title}</h3>
+                                <span class="record-type ${record.type}">${getTypeName(record.type)}</span>
+                            </div>
+                            <div class="record-date">${record.date}</div>
+                        </div>
+                        <div class="record-body">
+                            <div class="record-detail">
+                                <span class="detail-label">就诊人：</span>
+                                <span class="detail-value">${record.patient}</span>
+                            </div>
+                            <div class="record-detail">
+                                <span class="detail-label">医院科室：</span>
+                                <span class="detail-value">${record.hospital} - ${record.department}</span>
+                            </div>
+                            <div class="record-detail">
+                                <span class="detail-label">医生：</span>
+                                <span class="detail-value">${record.doctor}</span>
+                            </div>
+                            <div class="record-detail">
+                                <span class="detail-label">诊断：</span>
+                                <span class="detail-value">${record.diagnosis}</span>
+                            </div>
+                        </div>
+                        <div class="record-actions">
+                            <button class="record-btn">查看详情</button>
+                            <button class="record-btn">下载</button>
+                        </div>
+                    `;
+                    
+                    if (recordsList) {
+                        recordsList.appendChild(recordItem);
+                    }
+                });
+                
+                // 如果没有结果
+                if (demoResults.length === 0 && recordsList) {
+                    recordsList.innerHTML = `
+                        <div class="no-results">
+                            <p>未找到与手机号 ${phone} 相关联的病例记录</p>
+                        </div>
+                    `;
+                }
+            }
+            
+            function getTypeName(type) {
+                switch(type) {
+                    case 'diagnosis': return '诊断记录';
+                    case 'test': return '检查报告';
+                    case 'prescription': return '处方药单';
+                    case 'image': return '影像资料';
+                    default: return '其他资料';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

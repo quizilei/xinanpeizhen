@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>馨安陪诊 - 用户登录</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">馨安陪诊</div>
+            <div class="nav-center">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                    <li><a href="contact.html">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <a href="login.html" class="btn-small active">登录</a>
+                <a href="register.html" class="btn-small">注册</a>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="page-header">
+            <h1>用户登录</h1>
+        </section>
+        
+        <section class="content">
+            <div class="form-container">
+                <h2>欢迎回来</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username">用户名/手机号</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">密码</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">记住我</label>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%;">登录</button>
+                    
+                    <div class="form-footer">
+                        <p>还没有账号？<a href="register.html">立即注册</a></p>
+                        <p><a href="#">忘记密码？</a></p>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 馨安陪诊服务 - 版权所有</p>
+    </footer>
+    
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('loginForm');
+            if (loginForm) {
+                loginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // 设置登录状态（实际项目中应与后端API交互验证）
+                    localStorage.setItem('xingAnUserLoggedIn', 'true');
+                    localStorage.setItem('xingAnUserName', document.getElementById('username').value);
+                    
+                    // 检查是否有返回URL
+                    const returnUrl = localStorage.getItem('bookingReturnUrl');
+                    
+                    alert('登录成功！');
+                    
+                    // 如果有返回URL，跳转回原页面；否则跳转到首页
+                    if (returnUrl) {
+                        localStorage.removeItem('bookingReturnUrl');
+                        window.location.href = returnUrl;
+                    } else {
+                        window.location.href = 'index.html';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#78c2ad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- 任务清单 -->
+  <path d="M9 11l2 2 4-4"></path>
+  <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+  <!-- 代表速度的线条 -->
+  <path d="M4 12h-2" stroke-width="1.5" stroke-dasharray="2,2"></path>
+  <path d="M22 12h-2" stroke-width="1.5" stroke-dasharray="2,2"></path>
+</svg>

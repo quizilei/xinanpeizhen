@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>馨安陪诊 - 辅助预约</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">馨安陪诊</div>
+            <div class="nav-center">
+                <ul>
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="../about.html">关于我们</a></li>
+                    <li><a href="../contact.html">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <a href="../login.html" class="btn-small" id="loginBtn">登录</a>
+                <a href="../register.html" class="btn-small">注册</a>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="page-header">
+            <h1>辅助预约服务</h1>
+            <p>专业团队代您预约各大医院服务，节省您的时间和精力</p>
+        </section>
+        
+        <section class="booking-modules">
+            <div class="booking-grid">
+                <a href="booking-register.html" class="booking-module">
+                    <div class="module-icon large-icon">
+                        <img src="../images/register-icon.svg" alt="预约挂号图标">
+                    </div>
+                    <h2>预约挂号</h2>
+                    <p>专业团队代您预约各大医院门诊、专家号，解决挂号难题</p>
+                </a>
+                
+                <a href="booking-exam.html" class="booking-module">
+                    <div class="module-icon large-icon">
+                        <img src="../images/exam-icon.svg" alt="预约检查图标">
+                    </div>
+                    <h2>预约检查</h2>
+                    <p>为您预约各类医疗检查项目，提供检前指导及全程陪检服务</p>
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 馨安陪诊服务 - 版权所有</p>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 检查用户登录状态
+            const checkLoginStatus = () => {
+                const isLoggedIn = localStorage.getItem('xingAnUserLoggedIn') === 'true';
+                const loginBtn = document.getElementById('loginBtn');
+                
+                if (isLoggedIn) {
+                    loginBtn.textContent = '个人中心';
+                    loginBtn.href = '../user-center.html';
+                } else {
+                    loginBtn.textContent = '登录';
+                    loginBtn.href = '../login.html';
+                }
+            };
+            
+            // 页面加载时检查登录状态
+            checkLoginStatus();
+        });
+    </script>
+</body>
+</html>

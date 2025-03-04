@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>馨安陪诊 - 代跑办理</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">馨安陪诊</div>
+            <div class="nav-center">
+                <ul>
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="../about.html">关于我们</a></li>
+                    <li><a href="../contact.html">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <a href="../login.html" class="btn-small" id="loginBtn">登录</a>
+                <a href="../register.html" class="btn-small">注册</a>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="page-header">
+            <h1>代跑办理</h1>
+            <p>专业人员代为办理医院各项事务，让您告别排队烦恼</p>
+        </section>
+        
+        <section class="content">
+            <div class="container">
+                <div class="service-intro">
+                    <h2>代跑办理服务说明</h2>
+                    <p>馨安陪诊的代跑办理服务为您节省宝贵时间，我们的工作人员可以代您去医院办理各项流程，让您告别排队困扰。</p>
+                    
+                    <div class="notice-card">
+                        <h3>预订须知</h3>
+                        <ul class="notice-list">
+                            <li>预约时间：请至少提前24小时预约服务</li>
+                            <li>需提供材料：患者身份证、社保卡、医保卡、门诊病历本等相关有效证件</li>
+                            <li>委托授权：需签署书面委托授权书，可在线签署或现场签署</li>
+                            <li>服务范围：北京地区三甲医院及二级以上医疗机构</li>
+                            <li>工作时间：周一至周日 8:00-18:00（节假日正常服务）</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-types">
+                        <h3>服务类型</h3>
+                        <div class="service-items">
+                            <div class="service-item-card">
+                                <div class="service-icon">
+                                    <img src="../images/register-icon.svg" alt="挂号代办">
+                                </div>
+                                <h4>挂号代办</h4>
+                                <p>代为挂号，包括普通号、专家号、特需门诊</p>
+                            </div>
+                            <div class="service-item-card">
+                                <div class="service-icon">
+                                    <img src="../images/payment-icon.svg" alt="缴费代办">
+                                </div>
+                                <h4>缴费代办</h4>
+                                <p>代为门诊、住院缴费，快速完成付款流程</p>
+                            </div>
+                            <div class="service-item-card">
+                                <div class="service-icon">
+                                    <img src="../images/report-icon.svg" alt="取报告">
+                                </div>
+                                <h4>取报告/取药</h4>
+                                <p>代取检查结果、化验报告，代领处方药品</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="price-section">
+                        <h3>价格说明</h3>
+                        <div class="price-table">
+                            <div class="price-item">
+                                <div class="price-name">挂号/缴费代办</div>
+                                <div class="price-value">50元/次</div>
+                            </div>
+                            <div class="price-item">
+                                <div class="price-name">报告/药品代取</div>
+                                <div class="price-value">80元/次</div>
+                            </div>
+                            <div class="price-item">
+                                <div class="price-name">住院/出院手续</div>
+                                <div class="price-value">150元/次</div>
+                            </div>
+                            <div class="price-item">
+                                <div class="price-name">加急服务</div>
+                                <div class="price-value">+50元/次</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="booking-button-container">
+                        <a href="errands-booking.html" class="btn">填写基本信息</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="process-section">
+            <div class="container">
+                <h2>服务流程</h2>
+                <div class="process-flow">
+                    <div class="process-item">
+                        <div class="process-item-number">1</div>
+                        <h3>提交申请</h3>
+                        <p>填写服务需求和基本信息</p>
+                    </div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-item">
+                        <div class="process-item-number">2</div>
+                        <h3>服务确认</h3>
+                        <p>客服联系并确认服务细节</p>
+                    </div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-item">
+                        <div class="process-item-number">3</div>
+                        <h3>服务执行</h3>
+                        <p>专业人员执行代办服务</p>
+                    </div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-item">
+                        <div class="process-item-number">4</div>
+                        <h3>完成交付</h3>
+                        <p>按约定方式交付服务结果</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 馨安陪诊服务 - 版权所有</p>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 检查登录状态
+            const checkLoginStatus = () => {
+                const isLoggedIn = localStorage.getItem('xingAnUserLoggedIn') === 'true';
+                const loginBtn = document.getElementById('loginBtn');
+                
+                if (isLoggedIn) {
+                    loginBtn.textContent = '个人中心';
+                    loginBtn.href = '../user-center.html';
+                } else {
+                    loginBtn.textContent = '登录';
+                    loginBtn.href = '../login.html';
+                }
+            };
+            
+            // 页面加载时检查登录状态
+            checkLoginStatus();
+        });
+    </script>
+</body>
+</html>

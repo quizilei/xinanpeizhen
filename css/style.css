@@ -1,0 +1,1963 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 基础样式 - 墛大字体，简约清新设计 */
+body {
+    font-family: 'Microsoft YaHei', sans-serif;
+    line-height: 1.8;
+    color: #555;
+    font-size: 18px; /* 墛大基础字体大小 */
+    background-color: #f8f9fa; /* 柔和的背景色 */
+}
+
+/* 导航栏 - 更简洁的设计 */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* 新的导航栏样式 */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 2rem; /* 墛大logo字体 */
+    font-weight: bold;
+    color: #78c2ad; /* 更柔和的主色调 */
+    white-space: nowrap;
+    margin-right: 2rem;
+}
+
+.nav-center {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-center ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav-center li {
+    margin: 0 1.5rem;
+}
+
+.nav-center a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-center a:hover, .nav-center a.active {
+    color: #78c2ad;
+}
+
+/* 兼容旧版导航 */
+.nav-left ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav-left li {
+    margin-right: 2.5rem;
+}
+
+.nav-left a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-left a:hover, .nav-left a.active {
+    color: #78c2ad;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.btn-small {
+    display: inline-block;
+    background-color: #78c2ad;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    margin-left: 1rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(120, 194, 173, 0.2);
+}
+
+.btn-small:hover {
+    background-color: #68b0a0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(120, 194, 173, 0.3);
+}
+
+/* 首页大图区域 - 简约清新风格 */
+.hero {
+    background-color: #eef8f5; /* 柔和的背景色 */
+    padding: 7rem 5%; /* 更大的内边距 */
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3.2rem; /* 更大的标题 */
+    margin-bottom: 1.5rem;
+    color: #444;
+    font-weight: 600;
+}
+
+.hero p {
+    font-size: 1.6rem; /* 更大的文字 */
+    margin-bottom: 2.5rem;
+    color: #666;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #78c2ad; /* 柔和的按钮颜色 */
+    color: white;
+    padding: 1rem 2rem; /* 更大的按钮 */
+    border-radius: 50px; /* 圆角按钮 */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(120, 194, 173, 0.2); /* 柔和的阴影 */
+}
+
+.btn:hover {
+    background-color: #68b0a0;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(120, 194, 173, 0.3);
+}
+
+/* 特点展示区域 - 清新简约 */
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5rem 5%;
+    background-color: #fff;
+}
+
+.feature {
+    flex: 1;
+    min-width: 300px;
+    margin: 1.5rem;
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: 12px; /* 更圆润的边角 */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease;
+    background-color: #fff;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+.feature h2 {
+    margin-bottom: 1.2rem;
+    color: #78c2ad; /* 柔和的主色调 */
+    font-size: 1.8rem; /* 更大的标题 */
+}
+
+.feature p {
+    font-size: 1.1rem; /* 更大的字体 */
+}
+
+footer {
+    background-color: #f0f7f4; /* 更柔和的页脚颜色 */
+    color: #666;
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.1rem; /* 更大的字体 */
+}
+
+/* 内页页头 */
+.page-header {
+    background-color: #78c2ad; /* 柔和的主色调 */
+    color: white;
+    padding: 5rem 5%; /* 更大的内边距 */
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 3rem; /* 更大的标题 */
+    margin-bottom: 1rem;
+}
+
+.page-header p {
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* 内容区域 */
+.content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 5%; /* 更大的内边距 */
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 12px; /* 更圆润的边角 */
+    box-shadow: 0 5px 25px rgba(0,0,0,0.03);
+    padding: 3rem; /* 更大的内边距 */
+}
+
+.container h2 {
+    margin: 2rem 0 1.2rem;
+    color: #78c2ad; /* 柔和的主色调 */
+    font-size: 1.8rem; /* 更大的标题 */
+}
+
+.container h2:first-child {
+    margin-top: 0;
+}
+
+.container p {
+    margin-bottom: 1.8rem;
+    font-size: 1.1rem; /* 更大的字体 */
+}
+
+.values-list {
+    margin: 1.5rem 0 1.5rem 2rem;
+    font-size: 1.1rem; /* 更大的字体 */
+}
+
+.values-list li {
+    margin-bottom: 0.8rem;
+}
+
+/* 服务页面 */
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 4rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-item {
+    width: calc(50% - 2rem);
+    margin: 1.5rem 1rem;
+    padding: 2.5rem;
+    background-color: #fff;
+    border-radius: 12px; /* 更圆润的边角 */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+}
+
+.service-item h2 {
+    color: #78c2ad; /* 柔和的主色调 */
+    margin-bottom: 1.2rem;
+    font-size: 1.8rem; /* 更大的标题 */
+}
+
+.service-item p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem; /* 更大的字体 */
+}
+
+.service-price {
+    margin-top: 1.5rem;
+    font-weight: bold;
+    color: #f3969a; /* 柔和的价格颜色 */
+    font-size: 1.2rem; /* 更大的字体 */
+}
+
+/* 联系页面 */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-info, .contact-form {
+    flex: 1;
+    min-width: 300px;
+    margin: 1.5rem;
+    padding: 2.5rem;
+    background-color: #fff;
+    border-radius: 12px; /* 更圆润的边角 */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+}
+
+.contact-info ul {
+    list-style: none;
+    margin: 2rem 0;
+    font-size: 1.1rem; /* 更大的字体 */
+}
+
+.contact-info li {
+    margin-bottom: 1.2rem;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+    font-size: 1.1rem; /* 更大的字体 */
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1.1rem; /* 更大的字体 */
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #78c2ad;
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* 表单样式增强 */
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 3rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.03);
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #78c2ad;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.form-footer a {
+    color: #78c2ad;
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.checkbox-group input {
+    margin-right: 0.5rem;
+    width: auto;
+}
+
+/* 表单操作样式 */
+.form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.btn-secondary {
+    background-color: #f0f0f0;
+    color: #555;
+    box-shadow: none;
+}
+
+.btn-secondary:hover {
+    background-color: #e0e0e0;
+    color: #333;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* 小屏幕上稍微减小字体 */
+    }
+    
+    nav {
+        flex-direction: column;
+        padding: 1.2rem;
+        flex-wrap: wrap;
+    }
+    
+    nav ul {
+        margin-top: 1.2rem;
+    }
+    
+    nav ul li {
+        margin: 0 0.8rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.3rem;
+    }
+    
+    .feature {
+        min-width: 100%;
+    }
+    
+    .service-item {
+        width: 100%;
+    }
+    
+    .nav-left ul {
+        margin-top: 0;
+    }
+    
+    .nav-right {
+        margin-top: 1rem;
+        margin-left: auto;
+    }
+    
+    .title-link {
+        font-size: 3.5rem;
+    }
+    
+    .logo {
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .nav-center {
+        order: 3;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    
+    .nav-center ul {
+        justify-content: center;
+    }
+    
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .benefits {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 预约表单响应式支持 */
+@media (max-width: 768px) {
+    .form-split {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .form-actions .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 992px) {
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 大标题样式 */
+.big-title {
+    margin-bottom: 2rem;
+}
+
+.title-link {
+    font-size: 5rem;
+    font-weight: bold;
+    color: #78c2ad;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.title-link:hover {
+    transform: scale(1.05);
+    color: #68b0a0;
+}
+
+/* 服务模块样式 */
+.service-modules {
+    padding: 4rem 5%;
+    background-color: #fff;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-module {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    border-radius: 12px;
+    background-color: #f8f9fa;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: #555;
+}
+
+.service-module:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(120, 194, 173, 0.1);
+}
+
+.module-icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    background-color: #eef8f5;
+    border-radius: 50%;
+    padding: 1.5rem;
+}
+
+.module-icon img {
+    width: 100%;
+    height: auto;
+}
+
+.service-module h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: #78c2ad;
+}
+
+.service-module p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* 预约页面介绍部分 */
+.appointment-intro {
+    padding: 5rem 5%;
+    background-color: #eef8f5;
+}
+
+.appointment-intro .container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.appointment-intro h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #555;
+    font-size: 2.2rem;
+}
+
+.benefits {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.benefit-item {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+
+.benefit-item h3 {
+    color: #78c2ad;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.benefit-item p {
+    line-height: 1.6;
+}
+
+/* 服务详情页样式 */
+.service-list {
+    margin: 1.5rem 0 2rem 1.5rem;
+    font-size: 1.1rem;
+}
+
+.service-list li {
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.service-list li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #78c2ad;
+}
+
+.price-table {
+    margin: 2rem 0;
+}
+
+.price-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.price-item:last-child {
+    border-bottom: none;
+}
+
+.price-name {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.price-value {
+    font-size: 1.2rem;
+    color: #f3969a;
+    font-weight: bold;
+}
+
+.cta-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+/* 模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    right: 1.5rem;
+    top: 1rem;
+    font-size: 1.8rem;
+    color: #555;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #78c2ad;
+}
+
+/* 增强表单样式 */
+.form-group select {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1.1rem;
+    transition: border-color 0.3s;
+    background-color: white;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+}
+
+.form-group select:focus {
+    border-color: #78c2ad;
+    outline: none;
+}
+
+/* 目标群体样式 */
+.target-groups {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.target-group {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.target-group h3 {
+    color: #78c2ad;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+}
+
+/* 病例管理项目样式 */
+.records-items {修复版 */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.record-item {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.record-item h3 {
+    color: #78c2ad;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+}    justify-content: center;
+    width: 40px;
+/* 流程步骤样式 */    height: 40px;
+.process-steps {    background-color: #78c2ad;
+    margin: 2.5rem 0;    color: white;
+}    border-radius: 50%;
+    font-weight: bold;
+.process-step {    margin-right: 1.5rem;
+    display: flex;    flex-shrink: 0;
+    margin-bottom: 2rem;}
+    align-items: flex-start;
+}.step-content {
+    flex-grow: 1;
+.process-step:last-child {}
+    margin-bottom: 0;
+}.step-content h3 {
+    color: #555;
+.step-number {    margin-bottom: 0.5rem;
+    display: flex;    font-size: 1.3rem;
+    align-items: center;}
+    justify-content: center;
+    flex-shrink: 0;
+    margin-right: 1.5rem;
+    font-weight: bold;
+    border-radius: 50%;
+    color: white;
+    background-color: #78c2ad;
+    height: 40px;
+    width: 40px;
+}
+
+.step-content {
+    flex-grow: 1;
+}
+
+.step-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+/* 辅助预约模块样式 */
+.booking-modules {
+    padding: 4rem 5%;
+    background-color: #f8f9fa;
+}
+
+.booking-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.booking-module {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: #555;
+}
+
+.booking-module:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(120, 194, 173, 0.15);
+}
+
+.large-icon {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 2rem;
+}
+
+.booking-module h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #78c2ad;
+}
+
+.booking-module p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* 辅助预约模块样式 - 修复版 */
+.booking-modules {
+    padding: 4rem 5%;
+    background-color: #f8f9fa;
+}
+
+.booking-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.booking-module {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: #555;
+}
+
+.booking-module:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(120, 194, 173, 0.15);
+}
+
+.large-icon {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 2rem;
+}
+
+.booking-module h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #78c2ad;
+}
+
+.booking-module p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* 优势展示样式 */
+.advantage-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.advantage-item {
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+.advantage-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1.5rem;
+}
+
+.advantage-icon img {
+    width: 100%;
+    height: auto;
+}
+
+.advantage-item h3 {
+    color: #78c2ad;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+}
+
+.advantage-item p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.back-button-container {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* 响应式调整 */
+@media (max-width: 992px) {
+    .advantage-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .booking-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .advantage-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 预约表单样式强化 */
+.booking-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.form-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.form-full {
+    grid-column: 1 / -1;
+}
+
+.form-section {
+    margin-bottom: 2rem;
+}
+
+.form-section h3 {
+    margin-bottom: 1.5rem;
+    color: #555;
+    font-size: 1.4rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+}
+
+.radio-option input {
+    margin-right: 0.5rem;
+}
+
+/* 用户中心样式 */
+.user-welcome {
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.user-tabs {
+    margin-top: 2rem;
+}
+
+.tab-buttons {
+    display: flex;
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 2rem;
+}
+
+.tab-btn {
+    padding: 1rem 2rem;
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tab-btn:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #78c2ad;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.tab-btn.active {
+    color: #78c2ad;
+}
+
+.tab-btn.active:after {
+    transform: scaleX(1);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.user-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem 0;
+    color: #888;
+}
+
+.empty-state p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* 预约卡片 - 新样式 */
+.booking-cards {
+    padding: 5rem 5%;
+    background-color: #f8f9fa;
+}
+
+.booking-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.booking-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    background-color: #fff;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.booking-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 35px rgba(120, 194, 173, 0.15);
+}
+
+.register-card {
+    border-top: 5px solid #78c2ad;
+}
+
+.exam-card {
+    border-top: 5px solid #6cc3d5;
+}
+
+.booking-card-content {
+    padding: 3rem 2.5rem 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-card-icon {
+    width: 90px;
+    height: 90px;
+    background-color: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    padding: 1.5rem;
+}
+
+.booking-card-icon img {
+    width: 100%;
+    height: auto;
+}
+
+.booking-card h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+    text-align: center;
+    color: #444;
+}
+
+.booking-card-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.feature-list {
+    margin-top: auto;
+    margin-bottom: 1.5rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    font-size: 1.05rem;
+}
+
+.feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: #e6f7f2;
+    border-radius: 50%;
+    margin-right: 0.8rem;
+    color: #78c2ad;
+    font-weight: bold;
+}
+
+.booking-card-footer {
+    padding: 1.5rem 2.5rem;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.booking-btn {
+    display: inline-block;
+    width: 100%;
+    background-color: #78c2ad;
+    color: white;
+    padding: 1rem 0;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(120, 194, 173, 0.2);
+}
+
+.register-card .booking-btn {
+    background-color: #78c2ad;
+}
+
+.exam-card .booking-btn {
+    background-color: #6cc3d5;
+}
+
+.booking-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(120, 194, 173, 0.3);
+}
+
+/* 预约流程样式 */
+.booking-process {
+    padding: 5rem 5% 6rem;
+    background-color: #fff;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+    color: #444;
+}
+
+.process-flow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.process-item {
+    text-align: center;
+    flex: 1;
+    min-width: 180px;
+    padding: 1rem;
+}
+
+.process-item-number {
+    width: 50px;
+    height: 50px;
+    background-color: #78c2ad;
+    color: white;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.2rem;
+}
+
+.process-item h3 {
+    margin-bottom: 0.8rem;
+    color: #444;
+    font-size: 1.3rem;
+}
+
+.process-item p {
+    color: #666;
+    font-size: 1rem;
+}
+
+.process-arrow {
+    font-size: 2rem;
+    color: #999;
+    margin: 0 0.5rem;
+}
+
+@media (max-width: 992px) {
+    .booking-card-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+    
+    .process-flow {
+        flex-direction: column;
+    }
+    
+    .process-item {
+        margin-bottom: 2rem;
+        min-width: 100%;
+    }
+    
+    .process-arrow {
+        transform: rotate(90deg);
+        margin: 0.5rem 0;
+    }
+}
+
+/* 服务介绍样式 */
+.service-intro {
+    margin-bottom: 3rem;
+}
+
+.service-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.service-features .feature-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.service-features .feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: #e6f7f2;
+    border-radius: 50%;
+    margin-right: 0.8rem;
+    color: #78c2ad;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.service-features .feature-text {
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+.service-price {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eaeaea;
+}
+
+.service-price h3 {
+    margin-bottom: 1.5rem;
+    color: #555;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .service-features {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 代跑办理页面样式 */
+.notice-card {
+    background-color: #f8f9fa;
+    border-left: 4px solid #78c2ad;
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.notice-list {
+    margin: 1rem 0 0.5rem 1.5rem;
+}
+
+.notice-list li {
+    margin-bottom: 0.8rem;
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+.service-types {
+    margin: 3rem 0;
+}
+
+.service-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.service-item-card {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+
+.service-item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(120, 194, 173, 0.1);
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.2rem;
+    background-color: #eef8f5;
+    border-radius: 50%;
+    padding: 1.2rem;
+}
+
+.service-icon img {
+    width: 100%;
+    height: auto;
+}
+
+.service-item-card h4 {
+    margin-bottom: 0.8rem;
+    color: #444;
+    font-size: 1.3rem;
+}
+
+.service-item-card p {
+    color: #666;
+    font-size: 1rem;
+}
+
+.price-section {
+    margin: 3rem 0;
+}
+
+.booking-button-container {
+    text-align: center;
+    margin: 3rem 0 1rem;
+}
+
+.process-section {
+    padding: 5rem 0;
+    background-color: #f8f9fa;
+}
+
+.process-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+    color: #444;
+}
+
+@media (max-width: 768px) {
+    .service-items {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 异地就医页面样式 */
+.outstation-modules {
+    margin: 3rem 0;
+}
+
+.outstation-module {
+    margin-bottom: 3rem;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.outstation-module:last-child {
+    margin-bottom: 0;
+}
+
+.module-header {
+    background-color: #78c2ad;
+    color: white;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.dialysis .module-header {
+    background-color: #6cc3d5;
+}
+
+.module-header .module-icon {
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 1rem;
+    margin-right: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.module-header .module-icon img {
+    width: 100%;
+    height: auto;
+}
+
+.module-header h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: white;
+}
+
+.module-content {
+    padding: 2rem;
+}
+
+.module-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.module-actions {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.module-call-btn {
+    margin-bottom: 1rem;
+    min-width: 200px;
+    text-align: center;
+}
+
+.price-note {
+    color: #777;
+    font-size: 1rem;
+    font-style: italic;
+    margin: 0;
+}
+
+.outstation-process {
+    margin: 4rem 0;
+}
+
+.outstation-process h3 {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    color: #555;
+    text-align: center;
+}
+
+.contact-box {
+    background-color: #eef8f5;
+    padding: 2.5rem;
+    border-radius: 12px;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.contact-box h3 {
+    color: #555;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.contact-box p {
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+}
+
+.contact-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .module-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem 1rem;
+    }
+    
+    .module-header .module-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .contact-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* 病例管理页面新样式 */
+.records-intro {
+    padding: 4rem 5%;
+    background-color: #fff;
+}
+
+.records-intro-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+}
+
+.records-advantages {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.records-services {
+    padding: 4rem 5%;
+    background-color: #f8f9fa;
+}
+
+.records-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-top: 2.5rem;
+}
+
+.records-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.records-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(120, 194, 173, 0.1);
+}
+
+.records-card-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1.5rem;
+    padding: 1.2rem;
+    background-color: #eef8f5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.records-card-icon img {
+    width: 100%;
+    height: auto;
+}
+
+.records-card h3 {
+    font-size: 1.6rem;
+    text-align: center;
+    color: #78c2ad;
+    margin-bottom: 1rem;
+}
+
+.records-card p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    text-align: center;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.records-card-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.records-card-feature {
+    background-color: #eef8f5;
+    color: #78c2ad;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.records-card-footer {
+    margin-top: auto;
+    text-align: center;
+}
+
+.records-process {
+    padding: 4rem 5%;
+    background-color: #fff;
+}
+
+.records-process h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+    color: #444;
+}
+
+@media (max-width: 992px) {
+    .records-advantages {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .records-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .records-advantages {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 异地就医页面优化样式 */
+.outstation-intro {
+    padding: 4rem 5%;
+    background-color: #fff;
+}
+
+.container h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #444;
+}
+
+.outstation-intro-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.outstation-advantages {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 2rem 0;
+}
+
+.outstation-advantage {
+    text-align: center;
+    flex: 1;
+    max-width: 300px;
+}
+
+.advantage-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    padding: 1.5rem;
+    background-color: #eef8f5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.advantage-icon img {
+    width: 100%;
+    height: auto;
+}
+
+.outstation-advantage h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: #78c2ad;
+}
+
+.outstation-advantage p {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: #666;
+}
+
+.outstation-services {
+    padding: 4rem 5%;
+    background-color: #f8f9fa;
+}
+
+.outstation-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    margin-bottom: 3rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.outstation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(120, 194, 173, 0.1);
+}
+
+.outstation-card:last-child {
+    margin-bottom: 0;
+}
+
+.outstation-card-header {
+    background-color: #78c2ad;
+    color: white;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.dialysis .outstation-card-header {
+    background-color: #6cc3d5;
+}
+
+.outstation-card-icon {
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.outstation-card-icon img {
+    width: 100%;
+    height: auto;
+}
+
+.outstation-card-header h3 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.outstation-card-body {
+    padding: 2.5rem;
+}
+
+.outstation-card-desc {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    color: #555;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.outstation-features {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem auto;
+    max-width: 900px;
+}
+
+.feature-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.outstation-card-footer {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid #f0f0f0;
+}
+
+.call-btn {
+    min-width: 200px;
+    margin-bottom: 1rem;
+}
+
+.price-note {
+    font-style: italic;
+    color: #777;
+    margin: 0;
+}
+
+.outstation-process {
+    padding: 5rem 5%;
+    background-color: #fff;
+}
+
+.contact-section {
+    padding: 4rem 5%;
+    background-color: #f8f9fa;
+}
+
+@media (max-width: 992px) {
+    .outstation-advantages {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .outstation-advantage {
+        max-width: 500px;
+        margin-bottom: 2rem;
+    }
+    
+    .outstation-features {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .feature-col {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .outstation-card-header {
+        padding: 1.5rem;
+    }
+}

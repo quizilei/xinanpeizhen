@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>馨安陪诊 - 家人病例上传</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">馨安陪诊</div>
+            <div class="nav-center">
+                <ul>
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="../about.html">关于我们</a></li>
+                    <li><a href="../contact.html">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <a href="../login.html" class="btn-small" id="loginBtn">登录</a>
+                <a href="../register.html" class="btn-small">注册</a>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="page-header">
+            <h1>家人病例上传</h1>
+            <p>上传家人的医疗资料，构建健康档案</p>
+        </section>
+        
+        <section class="content">
+            <div class="container" id="uploadContainer">
+                <!-- 未登录提示 -->
+                <div class="login-required" id="loginRequiredMessage">
+                    <div class="login-required-icon">
+                        <img src="../images/lock-icon.svg" alt="需要登录">
+                    </div>
+                    <h2>请先登录</h2>
+                    <p>为保护您和家人的隐私安全，上传病例资料需要先登录账号</p>
+                    <a href="../login.html" class="btn">立即登录</a>
+                    <p class="register-prompt">还没有账号？<a href="../register.html">立即注册</a></p>
+                </div>
+                
+                <!-- 登录后显示内容 -->
+                <div class="records-upload-content" id="uploadContent" style="display: none;">
+                    <h2>家人病例上传</h2>
+                    <p class="upload-intro">请填写患者基本信息并上传相关医疗档案，我们将为您安全存储并分类整理。</p>
+                    
+                    <div class="upload-form-container">
+                        <form id="uploadForm" class="upload-form">
+                            <div class="form-section">
+                                <h3>基本信息</h3>
+                                
+                                <div class="form-group">
+                                    <label for="patientName">姓名</label>
+                                    <input type="text" id="patientName" name="patientName" placeholder="请输入患者姓名" required>
+                                </div>
+                                
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="patientGender">性别</label>
+                                        <select id="patientGender" name="patientGender" required>
+                                            <option value="">请选择</option>
+                                            <option value="male">男</option>
+                                            <option value="female">女</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="patientAge">年龄</label>
+                                        <input type="number" id="patientAge" name="patientAge" min="0" max="150" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="uploadDate">上传日期</label>
+                                    <input type="date" id="uploadDate" name="uploadDate" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="patientRelation">与查询人关系</label>
+                                    <select id="patientRelation" name="patientRelation" required>
+                                        <option value="">请选择</option>
+                                        <option value="self">本人</option>
+                                        <option value="spouse">配偶</option>
+                                        <option value="children">子女</option>
+                                        <option value="parents">父母</option>
+                                        <option value="grandparents">祖父母</option>
+                                        <option value="sibling">兄弟姐妹</option>
+                                        <option value="other">其他亲属</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="hospital">报告出具医院</label>
+                                    <input type="text" id="hospital" name="hospital" placeholder="请输入医院全称" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-section">
+                                <h3>病例资料</h3>
+                                
+                                <div class="form-group">
+                                    <label for="recordType">资料类型</label>
+                                    <select id="recordType" name="recordType" required>
+                                        <option value="">请选择资料类型</option>
+                                        <option value="diagnosis">诊断记录</option>
+                                        <option value="test">检查报告</option>
+                                        <option value="prescription">处方药单</option>
+                                        <option value="image">影像资料</option>
+                                        <option value="other">其他资料</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="fileUpload">上传文件</label>
+                                    <div class="file-upload-container">
+                                        <input type="file" id="fileUpload" name="fileUpload" multiple>
+                                        <div class="file-upload-button">
+                                            <span class="file-upload-icon">+</span>
+                                            <span class="file-upload-text">点击或拖拽上传文件</span>
+                                            <span class="file-upload-note">支持JPG、PNG、PDF等格式，最大20MB</span>
+                                        </div>
+                                    </div>
+                                    <div class="file-list" id="fileList"></div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="remarks">备注说明</label>
+                                    <textarea id="remarks" name="remarks" rows="3" placeholder="请输入关于此次资料的补充说明"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn" id="submitBtn">提交上传</button>
+                                <button type="reset" class="btn btn-secondary">重置</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="upload-tips">
+                        <h3>上传须知</h3>
+                        <ul>
+                            <li>请确保上传的资料清晰可辨，重要信息（如诊断结果、医生签名等）完整可见</li>
+                            <li>所有上传资料将进行加密保存，保障您和家人的隐私安全</li>
+                            <li>每次上传的总文件大小不超过100MB，如需上传更大文件请分批进行</li>
+                            <li>如有特殊需求或问题，请联系客服热线：400-123-4567</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="back-button-container">
+                    <a href="records.html" class="btn btn-secondary">返回病例管理</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 馨安陪诊服务 - 版权所有</p>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const isLoggedIn = localStorage.getItem('xingAnUserLoggedIn') === 'true';
+            const loginBtn = document.getElementById('loginBtn');
+            const loginRequiredMessage = document.getElementById('loginRequiredMessage');
+            const uploadContent = document.getElementById('uploadContent');
+            
+            // 检查登录状态
+            if (isLoggedIn) {
+                loginBtn.textContent = '个人中心';
+                loginBtn.href = '../user-center.html';
+                loginRequiredMessage.style.display = 'none';
+                uploadContent.style.display = 'block';
+            } else {
+                loginBtn.textContent = '登录';
+                loginBtn.href = '../login.html';
+                loginRequiredMessage.style.display = 'flex';
+                uploadContent.style.display = 'none';
+            }
+            
+            // 设置上传日期默认为今天
+            const uploadDateInput = document.getElementById('uploadDate');
+            if (uploadDateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                uploadDateInput.value = today;
+            }
+            
+            // 文件上传相关功能
+            const fileUpload = document.getElementById('fileUpload');
+            const fileList = document.getElementById('fileList');
+            
+            if (fileUpload) {
+                fileUpload.addEventListener('change', function(e) {
+                    if (fileList) {
+                        fileList.innerHTML = '';
+                        
+                        if (this.files && this.files.length > 0) {
+                            for (let i = 0; i < this.files.length; i++) {
+                                const file = this.files[i];
+                                const fileSize = (file.size / (1024 * 1024)).toFixed(2); // 转换为MB
+                                
+                                const fileItem = document.createElement('div');
+                                fileItem.className = 'file-item';
+                                
+                                fileItem.innerHTML = `
+                                    <span class="file-name">${file.name}</span>
+                                    <span class="file-size">${fileSize} MB</span>
+                                    <button type="button" class="file-remove" data-index="${i}">×</button>
+                                `;
+                                
+                                fileList.appendChild(fileItem);
+                            }
+                            
+                            // 添加文件删除功能
+                            document.querySelectorAll('.file-remove').forEach(btn => {
+                                btn.addEventListener('click', function() {
+                                    this.parentElement.remove();
+                                });
+                            });
+                        }
+                    }
+                });
+            }
+            
+            // 表单提交处理
+            const uploadForm = document.getElementById('uploadForm');
+            if (uploadForm) {
+                uploadForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // 如果未登录，保存表单数据并跳转到登录页面
+                    if (!isLoggedIn) {
+                        const formData = new FormData(uploadForm);
+                        const formDataObj = {};
+                        formData.forEach((value, key) => {
+                            if (key !== 'fileUpload') { // 不保存文件数据
+                                formDataObj[key] = value;
+                            }
+                        });
+                        
+                        localStorage.setItem('uploadFormData', JSON.stringify(formDataObj));
+                        localStorage.setItem('uploadReturnUrl', window.location.href);
+                        
+                        alert('请先登录后再提交病例资料');
+                        window.location.href = '../login.html';
+                        return;
+                    }
+                    
+                    // 已登录，处理表单提交
+                    alert('病例资料上传成功！我们的专业团队将为您整理归档。');
+                    uploadForm.reset();
+                    
+                    // 清空文件列表
+                    if (fileList) {
+                        fileList.innerHTML = '';
+                    }
+                    
+                    // 重置上传日期为今天
+                    if (uploadDateInput) {
+                        const today = new Date().toISOString().split('T')[0];
+                        uploadDateInput.value = today;
+                    }
+                });
+            }
+            
+            // 恢复之前保存的表单数据（如果有）
+            if (isLoggedIn) {
+                const savedFormData = localStorage.getItem('uploadFormData');
+                if (savedFormData) {
+                    try {
+                        const formDataObj = JSON.parse(savedFormData);
+                        
+                        // 填充表单字段
+                        Object.keys(formDataObj).forEach(key => {
+                            const input = document.getElementById(key);
+                            if (input) {
+                                input.value = formDataObj[key];
+                            }
+                        });
+                        
+                        // 清除已使用的保存数据
+                        localStorage.removeItem('uploadFormData');
+                        localStorage.removeItem('uploadReturnUrl');
+                    } catch (e) {
+                        console.error('恢复表单数据时出错:', e);
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

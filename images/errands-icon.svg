@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#78c2ad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- 人物轮廓 -->
+  <circle cx="12" cy="6" r="4"></circle>
+  <path d="M12 10v6"></path>
+  <!-- 跑动的腿 -->
+  <path d="M8 18l4-2l4 2"></path>
+  <!-- 文件/票据 -->
+  <path d="M19 15h-4c-1 0-1.5-1-1.5-1.5s.5-1.5 1.5-1.5h2"></path>
+  <rect x="17" y="9" width="5" height="3" rx="1"></rect>
+</svg>

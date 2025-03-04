@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>馨安陪诊 - 预约挂号</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">馨安陪诊</div>
+            <div class="nav-center">
+                <ul>
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="../about.html">关于我们</a></li>
+                    <li><a href="../contact.html">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <a href="../login.html" class="btn-small" id="loginBtn">登录</a>
+                <a href="../register.html" class="btn-small">注册</a>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="page-header">
+            <h1>预约挂号</h1>
+            <p>专业团队代您预约各大医院门诊、专家号，解决挂号难题</p>
+        </section>
+        
+        <section class="content">
+            <div class="container">
+                <div class="booking-form-container">
+                    <h2>填写挂号信息</h2>
+                    
+                    <!-- 登录提示 -->
+                    <div class="login-notice" id="loginNotice">
+                        <p>您尚未登录，建议先<a href="../login.html">登录</a>后再提交预约信息</p>
+                    </div>
+                    
+                    <form id="registerBookingForm" class="booking-form">
+                        <!-- 基本信息 -->
+                        <div class="form-section">
+                            <h3>基本信息</h3>
+                            
+                            <div class="form-group">
+                                <label for="patientName">姓名</label>
+                                <input type="text" id="patientName" name="patientName" required>
+                            </div>
+                            
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="patientGender">性别</label>
+                                    <select id="patientGender" name="patientGender" required>
+                                        <option value="">请选择</option>
+                                        <option value="male">男</option>
+                                        <option value="female">女</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="patientAge">年龄</label>
+                                    <input type="number" id="patientAge" name="patientAge" min="0" max="150" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="idCard">身份证号码</label>
+                                <input type="text" id="idCard" name="idCard" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">手机号码</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="platform">挂号平台</label>
+                                <select id="platform" name="platform" required>
+                                    <option value="">请选择挂号平台</option>
+                                    <option value="hospital">医院官网</option>
+                                    <option value="114">114预约平台</option>
+                                    <option value="app">医院APP</option>
+                                    <option value="wechat">微信公众号</option>
+                                    <option value="onsite">现场挂号</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="remarks">备注说明</label>
+                                <textarea id="remarks" name="remarks" rows="4" placeholder="请填写就诊科室、时间偏好等信息"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn" id="submitBtn">提交预约</button>
+                            <a href="booking.html" class="btn btn-secondary">返回</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 馨安陪诊服务 - 版权所有</p>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 判断用户是否登录（示例逻辑，实际应基于您的登录系统）
+            let isLoggedIn = false; // 默认用户未登录
+            
+            // 模拟检查登录状态（实际项目中应从cookies或localStorage中获取）
+            const checkLoginStatus = () => {
+                // 从localStorage中读取登录状态，如果没有则默认为未登录
+                isLoggedIn = localStorage.getItem('xingAnUserLoggedIn') === 'true';
+                
+                // 更新登录按钮和登录提示的显示状态
+                const loginBtn = document.getElementById('loginBtn');
+                const loginNotice = document.getElementById('loginNotice');
+                
+                if (isLoggedIn) {
+                    loginBtn.textContent = '个人中心';
+                    loginBtn.href = '../user-center.html';
+                    if (loginNotice) loginNotice.style.display = 'none';
+                } else {
+                    loginBtn.textContent = '登录';
+                    loginBtn.href = '../login.html';
+                    if (loginNotice) loginNotice.style.display = 'block';
+                }
+            };
+            
+            // 页面加载时检查登录状态
+            checkLoginStatus();
+            
+            // 表单提交处理
+            const registerBookingForm = document.getElementById('registerBookingForm');
+            if (registerBookingForm) {
+                registerBookingForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // 如果未登录，跳转到登录页面
+                    if (!isLoggedIn) {
+                        // 保存表单数据到localStorage，以便登录后返回填写
+                        const formData = new FormData(registerBookingForm);
+                        const formDataObj = {};
+                        formData.forEach((value, key) => {
+                            formDataObj[key] = value;
+                        });
+                        
+                        localStorage.setItem('bookingFormData', JSON.stringify(formDataObj));
+                        localStorage.setItem('bookingReturnUrl', window.location.href);
+                        
+                        alert('请先登录后再提交预约信息');
+                        window.location.href = '../login.html';
+                        return;
+                    }
+                    
+                    // 已登录，处理表单提交
+                    alert('预约挂号请求已提交！我们的工作人员将在24小时内与您联系确认详情。');
+                    
+                    // 模拟表单提交后的跳转
+                    window.location.href = 'booking.html';
+                });
+            }
+            
+            // 恢复之前保存的表单数据（如果有）
+            const restoreFormData = () => {
+                const savedFormData = localStorage.getItem('bookingFormData');
+                if (savedFormData && isLoggedIn) {
+                    try {
+                        const formDataObj = JSON.parse(savedFormData);
+                        
+                        // 填充表单字段
+                        Object.keys(formDataObj).forEach(key => {
+                            const input = document.getElementById(key);
+                            if (input) {
+                                input.value = formDataObj[key];
+                            }
+                        });
+                        
+                        // 清除已使用的保存数据
+                        localStorage.removeItem('bookingFormData');
+                    } catch (e) {
+                        console.error('恢复表单数据时出错:', e);
+                    }
+                }
+            };
+            
+            // 尝试恢复表单数据
+            restoreFormData();
+        });
+    </script>
+</body>
+</html>
